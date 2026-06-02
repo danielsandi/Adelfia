@@ -167,9 +167,9 @@
         <div class="divider"></div>
         <h2 class="gallery__heading">Bilder från fältet.</h2>
       </div>
-    </div>
 
-    <div style="padding: 0 2.5rem; max-width: 1200px; margin: 0 auto;">
+      <!-- overflow:visible är nödvändigt för hover-expand-effekten -->
+      <div style="overflow: visible;">
       <div class="gallery__grid">
         <div class="gallery__item gallery__item--wide fade-in">
           <img
@@ -206,6 +206,7 @@
             loading="lazy"
           />
         </div>
+      </div>
       </div>
     </div>
   </section>
@@ -308,11 +309,19 @@
         </button>
         <button class="pick-btn" data-font-value="grotesk">
           <span class="font-preview font-preview--grotesk">Aa</span>
-          Grotesk
+          Jakarta
         </button>
         <button class="pick-btn" data-font-value="editorial">
           <span class="font-preview font-preview--editorial">Aa</span>
           Editorial
+        </button>
+        <button class="pick-btn" data-font-value="roboto">
+          <span class="font-preview font-preview--roboto">Aa</span>
+          Roboto
+        </button>
+        <button class="pick-btn" data-font-value="raleway">
+          <span class="font-preview font-preview--raleway">Aa</span>
+          Raleway
         </button>
       </div>
 

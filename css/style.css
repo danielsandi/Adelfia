@@ -2,7 +2,7 @@
    ADÉLFIA AB — style.css
    ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,300;0,400;1,300;1,400&family=Space+Grotesk:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Plus+Jakarta+Sans:wght@300;400;500&family=Playfair+Display:ital,wght@0,300;0,400;1,300;1,400&family=Raleway:wght@300;400;500;600&family=Roboto:wght@400;700;900&family=Space+Grotesk:wght@300;400;500&display=swap');
 
 /* ============================================================
    1. FÄRGTEMAN
@@ -15,11 +15,11 @@
   --bg-3:        #e6e0d6;
   --border:      #cfc8bc;
   --text:        #1a1816;
-  --text-muted:  #7e776a;
+  --text-muted:  #5a5248;
   --accent:      #b08040;
   --accent-dim:  #7a5c2e;
   --nav-bg:      rgba(248,247,244,0.94);
-  --hero-overlay: rgba(248,247,244,0.36);
+  --hero-overlay: rgba(248,247,244,0.62);  /* tätare för bättre läsbarhet */
 }
 
 [data-theme="natt"] {
@@ -28,7 +28,7 @@
   --bg-3:        #1c1c16;
   --border:      #2c2c24;
   --text:        #e6e2d8;
-  --text-muted:  #78746a;
+  --text-muted:  #8a867a;   /* ljusare för bättre kontrast */
   --accent:      #c8a96e;
   --accent-dim:  #8a7048;
   --nav-bg:      rgba(14,14,12,0.96);
@@ -62,10 +62,10 @@
 }
 
 [data-font="grotesk"] {
-  --font-display: 'Inter', system-ui, sans-serif;
-  --font-body:    'Inter', system-ui, sans-serif;
+  --font-display: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-body:    'Plus Jakarta Sans', system-ui, sans-serif;
   --weight-display: 300;
-  --tracking-display: -0.03em;
+  --tracking-display: -0.02em;
   --tracking-body: 0;
 }
 
@@ -75,6 +75,24 @@
   --weight-display: 300;
   --tracking-display: -0.01em;
   --tracking-body: 0.01em;
+}
+
+/* Roboto — kraftfullt, bold display */
+[data-font="roboto"] {
+  --font-display: 'Roboto', system-ui, sans-serif;
+  --font-body:    'Roboto', system-ui, sans-serif;
+  --weight-display: 700;
+  --tracking-display: -0.02em;
+  --tracking-body: 0;
+}
+
+/* Raleway — elegant, luftig */
+[data-font="raleway"] {
+  --font-display: 'Raleway', system-ui, sans-serif;
+  --font-body:    'Raleway', system-ui, sans-serif;
+  --weight-display: 300;
+  --tracking-display: 0.04em;
+  --tracking-body: 0.02em;
 }
 
 /* ============================================================
@@ -120,9 +138,9 @@ ul   { list-style: none; }
 
 .label {
   font-family: var(--font-body);
-  font-size: 0.68rem;
+  font-size: 0.76rem;
   font-weight: 500;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--accent);
 }
@@ -181,9 +199,9 @@ ul   { list-style: none; }
 }
 
 .nav__links a {
-  font-size: 0.72rem;
+  font-size: 0.88rem;
   font-weight: 400;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--text-muted);
   transition: color 0.2s;
@@ -208,9 +226,9 @@ ul   { list-style: none; }
 .nav__links a.active::after { width: 100%; }
 
 .nav__cta {
-  font-size: 0.7rem !important;
+  font-size: 0.82rem !important;
   font-weight: 500 !important;
-  letter-spacing: 0.12em !important;
+  letter-spacing: 0.1em !important;
   text-transform: uppercase !important;
   padding: 0.55rem 1.3rem !important;
   border: 1px solid var(--border) !important;
@@ -338,6 +356,13 @@ ul   { list-style: none; }
   line-height: 1.0;
   letter-spacing: var(--tracking-display);
   margin-bottom: 2.5rem;
+  /* Skugga för mörkt tema (ljus text) */
+  text-shadow: 0 2px 8px rgba(0,0,0,0.6), 0 4px 40px rgba(0,0,0,0.45);
+}
+
+/* Ljust tema — mörk text, tätt overlay: subtil skugga räcker */
+[data-theme="dag"] .hero__title {
+  text-shadow: 0 1px 6px rgba(0,0,0,0.18);
 }
 
 .hero__title em {
@@ -351,6 +376,22 @@ ul   { list-style: none; }
   max-width: 380px;
   line-height: 1.9;
   margin-bottom: 4rem;
+  text-shadow: 0 1px 6px rgba(0,0,0,0.55), 0 2px 24px rgba(0,0,0,0.4);
+}
+
+[data-theme="dag"] .hero__subtitle {
+  text-shadow: 0 1px 4px rgba(0,0,0,0.14);
+}
+
+/* Label + eyebrow i hero */
+.hero__content .label,
+.hero__eyebrow .label {
+  text-shadow: 0 1px 6px rgba(0,0,0,0.4);
+}
+
+[data-theme="dag"] .hero__content .label,
+[data-theme="dag"] .hero__eyebrow .label {
+  text-shadow: none;
 }
 
 .hero__actions {
@@ -370,8 +411,8 @@ ul   { list-style: none; }
   align-items: center;
   gap: 0.75rem;
   color: var(--text-muted);
-  font-size: 0.6rem;
-  letter-spacing: 0.22em;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   writing-mode: vertical-rl;
 }
@@ -492,10 +533,10 @@ ul   { list-style: none; }
 .service-card:not(:first-child) { padding-left: 2.5rem; }
 
 .service-card__number {
-  font-family: var(--font-display);
-  font-size: 0.68rem;
-  font-weight: 400;
-  letter-spacing: 0.2em;
+  font-family: var(--font-body);
+  font-size: 0.76rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--accent);
   margin-bottom: 2rem;
@@ -517,7 +558,7 @@ ul   { list-style: none; }
 }
 
 /* ============================================================
-   10. BILDGALLERI
+   10. BILDGALLERI  — hover-expand-effekt
    ============================================================ */
 .gallery {
   border-top: 1px solid var(--border);
@@ -532,16 +573,39 @@ ul   { list-style: none; }
   letter-spacing: var(--tracking-display);
 }
 
+/* Omslaget måste INTE ha overflow:hidden — bilderna ska kunna växa utanför */
 .gallery__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: 260px;
-  gap: 2px;
+  grid-auto-rows: 280px;
+  gap: 4px;
+  position: relative; /* stacking context för z-index */
 }
 
 .gallery__item {
+  position: relative;
+  z-index: 1;
   overflow: hidden;
   background: var(--bg-3);
+  cursor: pointer;
+
+  /* z-index återställs EFTER att scale-animationen är klar vid mouseout */
+  transition:
+    transform  0.52s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.52s ease,
+    z-index    0s   0.52s;
+}
+
+.gallery__item:hover {
+  transform: scale(1.16);
+  z-index: 10;
+  box-shadow: 0 28px 72px rgba(0, 0, 0, 0.24);
+
+  /* z-index höjs OMEDELBART vid hover */
+  transition:
+    transform  0.52s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.52s ease,
+    z-index    0s   0s;
 }
 
 .gallery__item--wide { grid-column: span 2; }
@@ -550,13 +614,13 @@ ul   { list-style: none; }
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.7s ease;
-  filter: grayscale(8%);
+  display: block;
+  filter: grayscale(12%) brightness(0.93);
+  transition: filter 0.52s ease;
 }
 
 .gallery__item:hover img {
-  transform: scale(1.04);
-  filter: grayscale(0%);
+  filter: grayscale(0%) brightness(1.04);
 }
 
 /* ============================================================
@@ -604,16 +668,16 @@ ul   { list-style: none; }
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--border);
-  font-size: 0.68rem;
-  letter-spacing: 0.18em;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   margin-bottom: 1rem;
 }
 
 .merit-item__label {
-  font-size: 0.65rem;
-  letter-spacing: 0.2em;
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--accent);
 }
@@ -710,8 +774,8 @@ ul   { list-style: none; }
 }
 
 .form__label {
-  font-size: 0.68rem;
-  letter-spacing: 0.16em;
+  font-size: 0.76rem;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--text-muted);
 }
@@ -800,17 +864,17 @@ ul   { list-style: none; }
 .footer__logo span { color: var(--accent); }
 
 .footer__copy {
-  font-size: 0.72rem;
+  font-size: 0.78rem;
   color: var(--text-muted);
-  letter-spacing: 0.06em;
+  letter-spacing: 0.04em;
 }
 
 .footer__links { display: flex; gap: 2.5rem; }
 
 .footer__links a {
-  font-size: 0.72rem;
+  font-size: 0.78rem;
   color: var(--text-muted);
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   transition: color 0.2s;
 }
@@ -916,9 +980,9 @@ ul   { list-style: none; }
 
 /* Gemensam rubrik i panelen */
 .settings-group__label {
-  font-size: 0.62rem;
+  font-size: 0.72rem;
   font-weight: 500;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--text-muted);
   margin-bottom: 0.6rem;
@@ -991,11 +1055,95 @@ ul   { list-style: none; }
 }
 
 .font-preview--klassisk  { font-family: 'Cormorant Garamond', serif; font-style: italic; }
-.font-preview--grotesk   { font-family: 'Inter', sans-serif; font-weight: 500; font-size: 0.75rem; }
+.font-preview--grotesk   { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 500; font-size: 0.75rem; }
 .font-preview--editorial { font-family: 'Playfair Display', serif; }
+.font-preview--roboto    { font-family: 'Roboto', sans-serif; font-weight: 700; font-size: 0.7rem; }
+.font-preview--raleway   { font-family: 'Raleway', sans-serif; font-weight: 300; letter-spacing: 0.06em; }
 
 /* ============================================================
-   19. MERITER-FILTER (meriter.html)
+   19. TJÄNSTER-SIDAN
+   ============================================================ */
+
+/* Tjänsterad: nummer + rubrik till vänster, text + lista till höger */
+.service-row {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 4rem;
+  padding: 4rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.service-row:last-child { border-bottom: none; }
+
+.service-row__heading {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-weight: var(--weight-display);
+  line-height: 1.2;
+  letter-spacing: var(--tracking-display);
+}
+
+.service-row__desc {
+  color: var(--text-muted);
+  font-size: 0.92rem;
+  line-height: 1.9;
+  margin-bottom: 1.5rem;
+}
+
+.service-row__list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.service-row__list li {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border);
+}
+
+/* Processrutnät: "Så arbetar vi" */
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+}
+
+.process-step {
+  background: var(--bg-2);
+  padding: 2rem;
+}
+
+.process-step__number {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  color: var(--accent);
+  margin-bottom: 1rem;
+  font-weight: 300;
+}
+
+.process-step__title {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+  letter-spacing: var(--tracking-display);
+}
+
+.process-step__text {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.85;
+}
+
+/* ============================================================
+   20. MERITER-FILTER (meriter.html)
    ============================================================ */
 .merit-filter {
   background: none;
@@ -1035,6 +1183,15 @@ ul   { list-style: none; }
   .intro__inner   { grid-template-columns: 1fr; gap: 4rem; }
   .services__grid { grid-template-columns: 1fr; border-top: 1px solid var(--border); }
 
+  /* Tjänster-sidan */
+  .service-row {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 3rem 0;
+  }
+
+  .process-grid { grid-template-columns: repeat(2, 1fr); }
+
   .service-card {
     padding: 2.5rem 0;
     border-right: none;
@@ -1068,6 +1225,10 @@ ul   { list-style: none; }
 
   .hero__title   { font-size: clamp(2.6rem, 12vw, 3.8rem); }
   .hero__actions { flex-direction: column; align-items: flex-start; }
+
+  /* Tjänster-sidan */
+  .service-row__list { grid-template-columns: 1fr; }
+  .process-grid      { grid-template-columns: 1fr; }
 
   .gallery__grid { grid-template-columns: 1fr; grid-auto-rows: 220px; }
   .gallery__item--wide { grid-column: span 1; }

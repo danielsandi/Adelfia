@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const box    = document.getElementById('settingsBox');
 
   const THEMES = ['dag', 'natt', 'stal'];
-  const FONTS  = ['klassisk', 'grotesk', 'editorial'];
+  const FONTS  = ['klassisk', 'grotesk', 'editorial', 'roboto', 'raleway'];
 
   const THEME_KEY = 'adelfia-theme';
   const FONT_KEY  = 'adelfia-font';
