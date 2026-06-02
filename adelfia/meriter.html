@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="sv" data-theme="dag" data-font="klassisk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meriter — Adélfia AB</title>
+  <meta name="description" content="Se vad Adélfia AB har utfört — el, kontor och IT-installationer." />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="nav">
+    <div class="container">
+      <div class="nav__inner">
+        <a href="index.html" class="nav__logo">Adél<span>fia</span></a>
+        <ul class="nav__links">
+          <li><a href="index.html">Start</a></li>
+          <li><a href="tjanster.html">Tjänster</a></li>
+          <li><a href="meriter.html">Meriter</a></li>
+          <li><a href="kontakt.html" class="nav__cta">Kontakta oss</a></li>
+        </ul>
+        <button class="nav__hamburger" aria-label="Meny">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="nav__mobile">
+    <a href="index.html">Start</a>
+    <a href="tjanster.html">Tjänster</a>
+    <a href="meriter.html">Meriter</a>
+    <a href="kontakt.html">Kontakt</a>
+  </div>
+
+  <!-- ===== PAGE HEADER ===== -->
+  <header class="page-header">
+    <div class="container">
+      <span class="label">Utfört arbete</span>
+      <div class="divider"></div>
+      <h1 class="page-header__heading">Vad vi <em>har gjort.</em></h1>
+      <p class="page-header__sub">
+        Ett urval av projekt vi är extra nöjda med. Bilder och beskrivningar
+        uppdateras löpande.
+      </p>
+    </div>
+  </header>
+
+  <!-- ===== FILTER (enkel) ===== -->
+  <div style="border-bottom:1px solid var(--border); padding: 1.5rem 0;">
+    <div class="container" style="display:flex; gap:1.5rem; flex-wrap:wrap;">
+      <button class="merit-filter active" data-filter="all" onclick="filterMerits(this, 'all')">Alla</button>
+      <button class="merit-filter" data-filter="el" onclick="filterMerits(this, 'el')">El</button>
+      <button class="merit-filter" data-filter="kontor" onclick="filterMerits(this, 'kontor')">Kontor</button>
+      <button class="merit-filter" data-filter="it" onclick="filterMerits(this, 'it')">IT & Data</button>
+    </div>
+  </div>
+
+  <style>
+    .merit-filter {
+      background: none;
+      border: 1px solid transparent;
+      color: var(--text-muted);
+      font-family: var(--font-body);
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.5rem 1.2rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .merit-filter:hover,
+    .merit-filter.active {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+    .merit-item { transition: opacity 0.3s, transform 0.3s; }
+    .merit-item.hidden { opacity:0; pointer-events:none; height:0; overflow:hidden; padding:0; margin:0; }
+  </style>
+
+  <!-- ===== PROJECTS GRID ===== -->
+  <section class="section">
+    <div class="container">
+      <div class="merits__grid" id="meritsGrid">
+
+        <!-- Lägg till/ta bort merit-item-block för varje projekt -->
+        <!-- data-category = el | kontor | it -->
+
+        <div class="merit-item fade-in" data-category="el">
+          <div class="merit-item__img-placeholder">Foto kommer</div>
+          <span class="merit-item__label">El</span>
+          <h3 class="merit-item__title">Kontorslokal — Göteborg</h3>
+          <p class="merit-item__desc">Fullständig elinstallation i 400 kvm kontorslokal. Ny central, belysning och uttag genomgående.</p>
+        </div>
+
+        <div class="merit-item fade-in fade-in-delay-1" data-category="it">
+          <div class="merit-item__img-placeholder">Foto kommer</div>
+          <span class="merit-item__label">IT & Data</span>
+          <h3 class="merit-item__title">Fiberdragning — Mölndal</h3>
+          <p class="merit-item__desc">Strukturerad kabling med full dokumentation för fastighetsägare.</p>
+        </div>
+
+        <div class="merit-item fade-in" data-category="kontor">
+          <div class="merit-item__img-placeholder">Foto kommer</div>
+          <span class="merit-item__label">Kontor</span>
+          <h3 class="merit-item__title">TV-montering — Lindholmen</h3>
+          <p class="merit-item__desc">Installation av 6 skärmar i konferensrum med kabelhantering i vägg.</p>
+        </div>
+
+        <div class="merit-item fade-in fade-in-delay-1" data-category="el">
+          <div class="merit-item__img-placeholder">Foto kommer</div>
+          <span class="merit-item__label">El</span>
+          <h3 class="merit-item__title">Laddstationer — Hisingen</h3>
+          <p class="merit-item__desc">Installation av 4 EV-laddare i parkeringsgarage för bostadsrättsförening.</p>
+        </div>
+
+        <div class="merit-item fade-in" data-category="kontor">
+          <div class="merit-item__img-placeholder">Foto kommer</div>
+          <span class="merit-item__label">Kontor</span>
+          <h3 class="merit-item__title">Kontorsinredning — Centrum</h3>
+          <p class="merit-item__desc">Möbelmontering, listsättning och skyltning för nyinflyttad hyresgäst.</p>
+        </div>
+
+        <div class="merit-item fade-in fade-in-delay-1" data-category="it">
+          <div class="merit-item__img-placeholder">Foto kommer</div>
+          <span class="merit-item__label">IT & Data</span>
+          <h3 class="merit-item__title">Nätverksinstallation — Kungsbacka</h3>
+          <p class="merit-item__desc">Komplett WiFi-infrastruktur och patchning för mellanstort kontor.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PARTNERS / SAMARBETEN ===== -->
+  <section class="partners">
+    <div class="container">
+      <div class="partners__label">
+        <span class="label">Samarbeten & huvudbolag</span>
+      </div>
+      <div class="partners__logos">
+        <!-- Byt ut texten mot <img>-taggar när du har loggor -->
+        <span class="partners__logo">Samarbetspartner 1</span>
+        <span class="partners__logo">Samarbetspartner 2</span>
+        <span class="partners__logo">Samarbetspartner 3</span>
+        <span class="partners__logo">Samarbetspartner 4</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section class="section--tight" style="border-top:1px solid var(--border);">
+    <div class="container" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:2rem;">
+      <p class="fade-in" style="font-family:var(--font-display); font-size:clamp(1.5rem, 3vw, 2.2rem); font-weight:300;">
+        Vill du ha oss på ditt <em style="color:var(--accent); font-style:italic;">nästa projekt?</em>
+      </p>
+      <a href="kontakt.html" class="btn btn--primary fade-in">Kontakta oss →</a>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__logo">Adél<span>fia</span> AB</div>
+        <nav class="footer__links">
+          <a href="tjanster.html">Tjänster</a>
+          <a href="meriter.html">Meriter</a>
+          <a href="kontakt.html">Kontakt</a>
+        </nav>
+        <span class="footer__copy">© 2025 Adélfia AB</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== INSTÄLLNINGSPANEL ===== -->
+  <div class="settings-panel" id="settingsPanel">
+    <button class="settings-panel__toggle" id="settingsToggle" aria-label="Inställningar" aria-expanded="false">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <circle cx="12" cy="12" r="3"/>
+        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+      </svg>
+      <span>Utseende</span>
+    </button>
+    <div class="settings-panel__box" id="settingsBox">
+      <div class="settings-group">
+        <p class="settings-group__label">Färg</p>
+        <button class="pick-btn" data-theme-value="dag"><div class="swatch swatch--dag"></div>Dag</button>
+        <button class="pick-btn" data-theme-value="natt"><div class="swatch swatch--natt"></div>Natt</button>
+        <button class="pick-btn" data-theme-value="stal"><div class="swatch swatch--stal"></div>Stål</button>
+      </div>
+      <div class="settings-divider"></div>
+      <div class="settings-group">
+        <p class="settings-group__label">Typsnitt</p>
+        <button class="pick-btn" data-font-value="klassisk"><span class="font-preview font-preview--klassisk">Aa</span>Klassisk</button>
+        <button class="pick-btn" data-font-value="grotesk"><span class="font-preview font-preview--grotesk">Aa</span>Grotesk</button>
+        <button class="pick-btn" data-font-value="editorial"><span class="font-preview font-preview--editorial">Aa</span>Editorial</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script>
+    function filterMerits(btn, category) {
+      document.querySelectorAll('.merit-filter').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('.merit-item').forEach(item => {
+        if (category === 'all' || item.dataset.category === category) {
+          item.classList.remove('hidden');
+        } else {
+          item.classList.add('hidden');
+        }
+      });
+    }
+  </script>
+</body>
+</html>

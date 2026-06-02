@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="sv" data-theme="dag" data-font="klassisk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kontakt — Adélfia AB</title>
+  <meta name="description" content="Kontakta Adélfia AB för avtalspris och offert på el-, kontor- och IT-installationer." />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="nav">
+    <div class="container">
+      <div class="nav__inner">
+        <a href="index.html" class="nav__logo">Adél<span>fia</span></a>
+        <ul class="nav__links">
+          <li><a href="index.html">Start</a></li>
+          <li><a href="tjanster.html">Tjänster</a></li>
+          <li><a href="meriter.html">Meriter</a></li>
+          <li><a href="kontakt.html" class="nav__cta">Kontakta oss</a></li>
+        </ul>
+        <button class="nav__hamburger" aria-label="Meny">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="nav__mobile">
+    <a href="index.html">Start</a>
+    <a href="tjanster.html">Tjänster</a>
+    <a href="meriter.html">Meriter</a>
+    <a href="kontakt.html">Kontakt</a>
+  </div>
+
+  <!-- ===== CONTACT SECTION ===== -->
+  <section class="section" style="padding-top: calc(68px + 9rem);">
+    <div class="container">
+      <div class="contact__inner">
+
+        <!-- Left: Info -->
+        <div class="fade-in">
+          <span class="label">Hör av dig</span>
+          <div class="divider"></div>
+          <h1 class="contact__heading">
+            Låt oss ta ett <em>snack.</em>
+          </h1>
+          <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.9; max-width:380px;">
+            Berätta vad du behöver — vi återkommer med avtalspris eller offert.
+            Enkelt, rakt och utan onödig krångel.
+          </p>
+
+          <div class="contact__info">
+            <div class="contact__info-item">
+              <span class="label">E-post</span>
+              <!-- Byt ut mot rätt e-postadress -->
+              <a href="mailto:info@adelfia.se">info@adelfia.se</a>
+            </div>
+            <div class="contact__info-item">
+              <span class="label">Telefon</span>
+              <!-- Byt ut mot rätt nummer -->
+              <a href="tel:+46700000000">070-000 00 00</a>
+            </div>
+            <div class="contact__info-item">
+              <span class="label">Org. nr</span>
+              <span>XXXXXX-XXXX</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Form -->
+        <div class="fade-in fade-in-delay-1">
+          <form class="form" action="mailto:info@adelfia.se" method="post" enctype="text/plain">
+
+            <div class="form__row">
+              <div class="form__group">
+                <label class="form__label" for="name">Namn</label>
+                <input class="form__input" id="name" name="name" type="text" placeholder="Ditt namn" required />
+              </div>
+              <div class="form__group">
+                <label class="form__label" for="company">Företag</label>
+                <input class="form__input" id="company" name="company" type="text" placeholder="Frivilligt" />
+              </div>
+            </div>
+
+            <div class="form__group">
+              <label class="form__label" for="email">E-post</label>
+              <input class="form__input" id="email" name="email" type="email" placeholder="din@mail.se" required />
+            </div>
+
+            <div class="form__group">
+              <label class="form__label" for="subject">Vad gäller det?</label>
+              <select class="form__input" id="subject" name="subject">
+                <option value="">Välj tjänst…</option>
+                <option value="el">Elinstallation</option>
+                <option value="kontor">Kontorinstallation</option>
+                <option value="it">IT & Data</option>
+                <option value="annat">Annat</option>
+              </select>
+            </div>
+
+            <div class="form__group">
+              <label class="form__label" for="message">Beskriv uppdraget</label>
+              <textarea class="form__textarea" id="message" name="message" placeholder="Berätta kort vad du behöver hjälp med…" required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn--primary" style="width:100%; justify-content:center;">
+              Skicka meddelande
+            </button>
+
+            <p style="font-size:0.75rem; color:var(--text-muted); margin-top:0.5rem; text-align:center;">
+              Vi svarar normalt inom 1 arbetsdag.
+            </p>
+
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer" style="margin-top:var(--gap-xl);">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__logo">Adél<span>fia</span> AB</div>
+        <nav class="footer__links">
+          <a href="tjanster.html">Tjänster</a>
+          <a href="meriter.html">Meriter</a>
+          <a href="kontakt.html">Kontakt</a>
+        </nav>
+        <span class="footer__copy">© 2025 Adélfia AB</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== INSTÄLLNINGSPANEL ===== -->
+  <div class="settings-panel" id="settingsPanel">
+    <button class="settings-panel__toggle" id="settingsToggle" aria-label="Inställningar" aria-expanded="false">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <circle cx="12" cy="12" r="3"/>
+        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+      </svg>
+      <span>Utseende</span>
+    </button>
+    <div class="settings-panel__box" id="settingsBox">
+      <div class="settings-group">
+        <p class="settings-group__label">Färg</p>
+        <button class="pick-btn" data-theme-value="dag"><div class="swatch swatch--dag"></div>Dag</button>
+        <button class="pick-btn" data-theme-value="natt"><div class="swatch swatch--natt"></div>Natt</button>
+        <button class="pick-btn" data-theme-value="stal"><div class="swatch swatch--stal"></div>Stål</button>
+      </div>
+      <div class="settings-divider"></div>
+      <div class="settings-group">
+        <p class="settings-group__label">Typsnitt</p>
+        <button class="pick-btn" data-font-value="klassisk"><span class="font-preview font-preview--klassisk">Aa</span>Klassisk</button>
+        <button class="pick-btn" data-font-value="grotesk"><span class="font-preview font-preview--grotesk">Aa</span>Grotesk</button>
+        <button class="pick-btn" data-font-value="editorial"><span class="font-preview font-preview--editorial">Aa</span>Editorial</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
